@@ -1,11 +1,16 @@
-name: android_build
+name: Android CI
 
 on:
-  workflow_dispatch:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
 
 jobs:
   build:
+
     runs-on: ubuntu-latest
+
     steps:
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -18,14 +23,9 @@ jobs:
         with:
           java-version: 21
           distribution: 'adopt'  # 添加这一行
-          
-      - name: Build the app
-        run: |
-          if [ ! -f "gradlew" ]; then gradle wrapper; fi
-          chmod +x gradlew
-          ./gradlew assembleDebug --stacktrace
-      - name: Upload APK
-        uses: actions/upload-artifact@v2
-        with:
-          name: my-build-apk
-          path: ./**/*.apk
+        
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+      - name: Build with Gradle
+        run: ./gradlew build
+ 

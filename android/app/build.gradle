@@ -70,6 +70,7 @@ android {
         versionName flutterVersionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+    ///
     signingConfigs {
         release {
             keyAlias keystoreProperties['keyAlias']
@@ -78,6 +79,7 @@ android {
             storePassword keystoreProperties['storePassword']
         }
     }
+    ///
     buildTypes {
         release {
             // TODO: Add your own signing config for the release build.

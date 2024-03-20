@@ -25,7 +25,10 @@ jobs:
           distribution: 'adopt'  # 添加这一行
         
       - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
+        run: |
+          if [ ! -f "gradlew" ]; then gradle wrapper; fi
+          chmod +x gradlew
+          ./gradlew assembleDebug --stacktrace
       - name: Build with Gradle
         run: ./gradlew build
  

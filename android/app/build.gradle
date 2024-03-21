@@ -48,7 +48,7 @@ println("packageName=${packageName}")
 
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
-apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
+apply from: "/home/runner/work/android_builder/android_builder/project1/android/app/build.gradle"
 
 android {
     compileSdkVersion 34

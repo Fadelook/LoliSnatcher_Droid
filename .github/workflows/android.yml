@@ -21,9 +21,9 @@ jobs:
       - name: Setup Flutter
         run: |
           git clone https://github.com/flutter/flutter.git -b stable --depth 1
-          echo "FLUTTER_HOME=$(pwd)/flutter" >> $GITHUB_ENV
-          echo "PATH=$PATH:$(pwd)/flutter/bin" >> $GITHUB_ENV
-          echo "flutter.sdk=$(pwd)/flutter" > .local.properties
+          echo "FLUTTER_HOME=/flutter" >> $GITHUB_ENV
+          echo "PATH=/flutter/bin" >> $GITHUB_ENV
+          echo "flutter.sdk=/flutter" > .local.properties
 
       - name: Build the app
         working-directory: ./android/
